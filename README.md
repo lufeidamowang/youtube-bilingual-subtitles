@@ -17,6 +17,8 @@
 https://github.com/lufeidamowang/youtube-bilingual-subtitles/releases/download/v0.3.0/YouTube.Bilingual.srmodule
 ```
 
+从早期局域网测试版迁移时，请先停用旧的「YTB 双语字幕 M0」模块，避免两个字幕模块同时运行。
+
 **每条新视频先检查 CC 是否开启。** 本模块不会替 YouTube 自动打开 CC。选择 YouTube 自带“自动翻译”时，当前版本保持该轨道原样。
 
 模块和脚本使用固定版本 HTTPS 地址，不依赖开发者电脑或局域网。更新时从 Releases 选择新版本重新导入；不会静默跟随 main 分支升级。GitHub 无法访问时，首次安装、下载或更新可能失败。

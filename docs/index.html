@@ -20,6 +20,7 @@
 <ol><li><strong>导入模块。</strong>点击上方按钮，或复制地址手动添加并启用。</li>
 <li><strong>设置自己的证书。</strong>在 Shadowrocket 当前配置的 HTTPS 解密中生成 CA、安装描述文件；在 iOS「设置 → 通用 → 关于本机 → 证书信任设置」信任自己生成的证书，再开启 HTTPS 解密。<a href="https://support.apple.com/en-us/102390">Apple 操作说明</a></li>
 <li><strong>开启视频 CC。</strong>保持 Shadowrocket 连接，回到 YouTube 点 CC，选择原语言字幕。每条新视频都先确认 CC 已打开。</li></ol>
+<p>从旧版迁移？请停用旧的「YTB 双语字幕 M0」模块，避免重复处理字幕。</p>
 <h2>先了解权限，再开启</h2>
 <p>信任 CA 是设备级权限。模块只增加 www.youtube.com 与 m.youtube.com 两个解密域名；脚本只改写字幕接口，但 HTTPS 解密本身作用于整个域名。不要使用别人提供的证书或私钥。</p>
 <p>翻译请求直接发给 YouTube，字幕在手机上合并；没有本项目后台、遥测或 AI API Key。安装下载连接 GitHub。已有配置可能包含其他解密规则，请自行检查。</p>
