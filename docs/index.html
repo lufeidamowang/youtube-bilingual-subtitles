@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouTube 双语字幕 · 手机安装</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,-apple-system,sans-serif;line-height:1.65}body{max-width:680px;margin:auto;padding:32px 22px 70px}h1{font-size:36px;line-height:1.2}h2{margin-top:32px;font-size:22px}.tag{font-size:14px;color:#78818a}.button{display:block;text-align:center;background:#c92329;color:white;padding:15px;border-radius:12px;text-decoration:none;font-weight:650;margin:18px 0}a{color:#c92329}li{margin:12px 0}code{overflow-wrap:anywhere}input{box-sizing:border-box;width:100%;padding:12px;font-size:14px}button{padding:10px 18px;margin-top:10px;cursor:pointer}details{margin:18px 0}summary{cursor:pointer;font-weight:600}.note{border-left:3px solid #b67c22;padding-left:16px}.qr{width:180px;height:180px;background:white;padding:10px}footer{margin-top:40px;font-size:14px}
+</style>
+<main>
+<p class="tag">开源 · iPhone / Shadowrocket · v0.3.0 测试版</p>
+<h1>原文和中文，<br>一起看 YouTube。</h1>
+<p>继续使用官方 YouTube App。开启原语言 CC，让已有字幕显示原文和简体中文。</p>
+<p class="note">需要你已安装 Shadowrocket（独立付费 App），并能正常播放 YouTube。Android 暂未支持。本项目不提供代理节点。</p>
+<a class="button" id="install" href="shadowrocket://install?module=https%3A%2F%2Fgithub.com%2Flufeidamowang%2Fyoutube-bilingual-subtitles%2Freleases%2Fdownload%2Fv0.3.0%2FYouTube.Bilingual.srmodule">导入到 Shadowrocket</a>
+<p>请用 iPhone Safari 打开。按钮只负责导入模块，证书设置仍需你亲自完成。</p>
+<details><summary>按钮没反应？复制地址手动导入</summary>
+<label for="url">在 Shadowrocket「配置 → 模块」中添加：</label>
+<input id="url" readonly value="https://github.com/lufeidamowang/youtube-bilingual-subtitles/releases/download/v0.3.0/YouTube.Bilingual.srmodule">
+<button id="copy" type="button">复制模块地址</button><p id="status" role="status" aria-live="polite"></p></details>
+<h2>首次设置，三步完成</h2>
+<ol><li><strong>导入模块。</strong>点击上方按钮，或复制地址手动添加并启用。</li>
+<li><strong>设置自己的证书。</strong>在 Shadowrocket 当前配置的 HTTPS 解密中生成 CA、安装描述文件；在 iOS「设置 → 通用 → 关于本机 → 证书信任设置」信任自己生成的证书，再开启 HTTPS 解密。<a href="https://support.apple.com/en-us/102390">Apple 操作说明</a></li>
+<li><strong>开启视频 CC。</strong>保持 Shadowrocket 连接，回到 YouTube 点 CC，选择原语言字幕。每条新视频都先确认 CC 已打开。</li></ol>
+<h2>先了解权限，再开启</h2>
+<p>信任 CA 是设备级权限。模块只增加 www.youtube.com 与 m.youtube.com 两个解密域名；脚本只改写字幕接口，但 HTTPS 解密本身作用于整个域名。不要使用别人提供的证书或私钥。</p>
+<p>翻译请求直接发给 YouTube，字幕在手机上合并；没有本项目后台、遥测或 AI API Key。安装下载连接 GitHub。已有配置可能包含其他解密规则，请自行检查。</p>
+<details><summary>为什么还是没字幕？</summary><ul><li>完全没字幕：检查 CC；无原字幕的视频暂不支持。</li><li>只有原文：检查模块、证书信任、HTTPS 解密及脚本下载。翻译失败会保留原文。</li><li>只有中文：切回原语言，不要选择 YouTube 自带“自动翻译”。</li><li>仍有问题：到 GitHub 提交视频公开链接及应用版本，不要附 Cookie、代理配置、证书或私钥。</li></ul></details>
+<details><summary>如何卸载？</summary><p>停用或删除模块即可停止字幕改写。若不再需要 HTTPS 解密，关闭它，并撤销对应 CA 信任、移除描述文件；先确认其他模块没有依赖该证书。</p></details>
+<details><summary>版本和兼容性</summary><p>使用固定版本脚本，更新需要主动导入新版本。此前已在 iPhone 14 Plus 上验证英文视频；其他语言、横屏、倍速和长期稳定性仍需测试。上游更新可能导致失效。此页不保证所有视频可用。</p></details>
+<h2>在电脑上？用手机扫码</h2><img class="qr" src="install-qr.svg" alt="手机安装页二维码" width="180" height="180">
+<footer><a href="https://github.com/lufeidamowang/youtube-bilingual-subtitles">源码、反馈和完整说明</a> · Apache-2.0<br>字幕合并源自 DualSubs。与 YouTube、Google、Shadowrocket、DualSubs 无官方关联。</footer>
+</main>
+<script>document.getElementById('copy').onclick=async()=>{const field=document.getElementById('url');try{await navigator.clipboard.writeText(field.value);document.getElementById('status').textContent='已复制，可到 Shadowrocket 添加。'}catch{field.focus();field.select();document.getElementById('status').textContent='请长按地址，选择复制。'}};</script>
+</html>

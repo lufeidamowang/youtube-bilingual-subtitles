@@ -1,0 +1,19 @@
+{
+  "name": "youtube-bilingual-subtitles",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-shadowrocket.mjs",
+    "test": "YTB_PROJECT_ROOT=. node --test scripts/*.test.mjs",
+    "check": "npm run build && npm test"
+  },
+  "dependencies": {
+    "core-js": "3.50.0",
+    "esbuild": "0.28.2",
+    "fast-xml-parser": "5.11.2",
+    "text-encoding": "0.7.0"
+  },
+  "license": "Apache-2.0",
+  "description": "Bilingual subtitles in the official YouTube iOS app using Shadowrocket"
+}
